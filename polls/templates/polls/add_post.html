@@ -1,0 +1,28 @@
+
+{% extends 'polls/base.html' %}
+{% block title %}Create a New Blog Post!{% endblock %}
+
+{% block content %}
+
+    <div class="row justify-content-center">
+        <h1 class="row justify-content-center">Add Post...</h1>
+        <div class="col-md-6 col-sm-12">
+            <br/><br/>
+            <div class="form-group">
+                <form method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {{ form.media }}
+                    {{ form.as_p }}
+                    <button class="btn btn-secondary">Post</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        var name = "{{ user.id }}";
+        document.getElementById("user").value = name;
+    </script>
+
+
+{% endblock %}
